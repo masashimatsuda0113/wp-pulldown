@@ -1,0 +1,53 @@
+
+/* 初期状態でサブメニューを非表示にしておく */
+.sub-menu {
+display: none;
+}
+
+/* 子を持つ親メニューにマウスオーバーしたとき、サブメニューを表示する */
+.menu-item-has-children:hover .sub-menu {
+	display: block;
+}
+
+.sub-menu {
+  display: none;
+  position: absolute;
+  top: 68px;
+  left: 0;
+  width: 200px;
+  background: #775836;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+  padding: 0;
+}
+
+/* サブメニューをabsoluteにするため、親メニューをrelativeに */
+.menu-item-has-children {
+  position: relative;
+}
+
+/* 3階層目位置調整 */
+#gnav .menu-item-has-children .menu-item-has-children ul.sub-menu {
+	position: absolute;
+	top: 56px;
+}
+/* 3階層目ホバーで表示 */
+#gnav .menu-item-has-children .menu-item-has-children ul.sub-menu {
+	display: none;
+}
+#gnav .menu-item-has-children .menu-item-has-children:hover ul.sub-menu{
+	display: block;
+}
+
+/* 小階層があるメニューに擬似要素追加 */
+.menu-item-has-children > a:after {
+	content: '▼';
+	font-size: 12px;
+	padding-left: 5px;
+	vertical-align: middle;
+}
+
+header nav #gnav .sub-menu a{
+	  font-size: 16px;
+    font-size: 1.6rem;
+    padding: 20px 10px;
+}
